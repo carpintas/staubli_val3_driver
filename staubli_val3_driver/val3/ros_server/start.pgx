@@ -80,6 +80,7 @@
     sMotionTaskName = "motionTask"
     sScreenTaskName = "screenTask"
     sHtbtTaskName = "htbtTask"
+    sTskMngTaskName = "taskManager"
 
     // initialise TCP/IP parameters
     call initParams()
@@ -123,7 +124,7 @@
     resetMotion()
   
     //start task for the taskManager:
-    taskCreate "taskManager", 50, taskManager()
+    taskCreate sTskMngTaskName, 50, taskManager()
     wait(taskStatus("taskManager") != -1)
   endIf
   

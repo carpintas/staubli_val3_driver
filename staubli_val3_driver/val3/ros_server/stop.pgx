@@ -16,22 +16,23 @@
   // See the License for the specific language governing permissions and
   // limitations under the License.
 
-
-
+  // Reset robots motion
   resetMotion()
+  // Show pop message with peding motion being cancelled
   popUpMsg("Pending movement commands have been cancelled.")
   
-  if nLibLoadError == 0
+  // Clear user screen if library was loaded with success at the start program
+  if nLibLoadError==0
     call libInterface:clearScreen()
   endIf
   
-  taskKill("taskManager")
-  taskKill("streamerTask")
-  taskKill("trajPtTask")
-  taskKill("motionTask")
-  taskKill("screenTask")
-  taskKill("htbtTask")
-  
+  // Kill running tasks
+  taskKill(sTskMngTaskName)
+  taskKill(sStreamTaskName)
+  taskKill(sTrajPtTaskName)
+  taskKill(sMotionTaskName)
+  taskKill(sScreenTaskName)
+  taskKill(sHtbtTaskName)  
 end]]></Code>
   </Program>
 </Programs>
